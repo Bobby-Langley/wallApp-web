@@ -40,7 +40,9 @@
   line-height: 64px;
   background: #f0f2f5  !important;
 }
-
+.ant-card-body {
+  padding: inherit !important;
+}
 .App-link {
   color: #61dafb;
 }

@@ -6,20 +6,7 @@ import { UserContext } from "../App";
 
 function Posts({ posts, setPosts, loading, setLoading }) {
   const { user } = useContext(UserContext);
-  const data = [
-    {
-      title: "Ant Design Title 1",
-    },
-    {
-      title: "Ant Design Title 2",
-    },
-    {
-      title: "Ant Design Title 3",
-    },
-    {
-      title: "Ant Design Title 4",
-    },
-  ];
+  
   return (
     <>
       <Title>Posts</Title>
@@ -28,9 +15,10 @@ function Posts({ posts, setPosts, loading, setLoading }) {
           <Col span={8}>
             <Card
               hoverable
+              bodyStyle={{visibility: "hidden", color: "black"}}
               style={{ margin: "24px" }}
               key={post.id}
-              title={<Link to={"/post/" + post.id}>{post.name}</Link>}
+              title={<Link to={"/post/" + post.id}>{post.post}</Link>}
             ></Card>
           </Col>
         );
