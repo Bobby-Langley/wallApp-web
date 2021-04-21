@@ -24,9 +24,9 @@ function App() {
       <UserContext.Provider value={{ user, setUser, firebaseAuth }}>
         <Router>
           <Layout>
-            <Header style={{ color: "black" }}>
+            <Header style={{ color: "grey" }}>
               <Row justify="space-between">
-                <Col span={7}>  <h1 >
+                <Col span={7} style={{color:"grey"}}>  <h1 >
                     <Link className="welcome" to="/" style={{fontSize:"26px"}} > <img style={{marginRight: "7px"}} width={24} height={24} src="\circle-cropped.png"></img> TSL Wall App </Link>
                   </h1>
                   </Col>
