@@ -1,6 +1,6 @@
-import { Spin } from "antd";
-import Title from "antd/lib/typography/Title";
 import React, { useState, useEffect, useContext } from "react";
+import { Col, Row, Spin } from "antd";
+import Title from "antd/lib/typography/Title";
 import { Link } from "react-router-dom";
 import { UserContext } from "../App";
 import NewPost from "../components/addPost";
@@ -27,38 +27,52 @@ function Home() {
   }, [user]);
   return (
     <>
+    <Row justify="center">
+        <Col span={24}>
       {!user ? (
-        <>
+        <Col>
           <Link to="/login"> Login </Link>
           <Link to="/signup"> sign up </Link>
-        </>
-      ) : (
+        </Col>
+          
+      ) 
+      :
+      (
+          <Col span={14}>
         <h1>Welcome, {user.displayName} </h1>
-      )}
           <NewPost
-            posts={posts}
-            setPosts={setPosts}
-            loading={loading}
-            setLoading={setLoading}
+          posts={posts}
+          setPosts={setPosts}
+          loading={loading}
+          setLoading={setLoading}
           />
+          </Col>
+          
+          )} 
+          </Col>
+          
+          
+              <Col span={24}>
       {loading ? (
-        <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center" }}>
           <Spin style={{ textAlign: "center" }} size="large" />{" "}
         </div>
       ) : (
-        <>
+          
+          <>
           <br />
-
 
           <Posts
             posts={posts}
             setPosts={setPosts}
             loading={loading}
             setLoading={setLoading}
-          />
+            />
         </>
       )}
-    </>
+      </Col>
+      </Row>
+      </>
   );
 }
 

@@ -33,7 +33,7 @@ function Navbar() {
       <Menu mode="horizontal" defaultSelectedKeys={["1"]} style={rightStyle}>
          
         { user ? (<Menu.Item style={{fontSize:"16px"}} key="3" icon={<UserOutlined />}>
-          <Link to="/user/">Profile Page</Link>
+          <Link to="/user/">Your Posts</Link>
         </Menu.Item>) : ( <Menu.Item></Menu.Item> )}
         
         {user ? (
