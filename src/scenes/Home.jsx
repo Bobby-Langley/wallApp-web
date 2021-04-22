@@ -39,7 +39,7 @@ function Home() {
       :
       (
           <Col span={14}>
-        <h1>Welcome, {user.displayName} </h1>
+        <h1>Welcome {user.displayName} </h1>
           <NewPost
           posts={posts}
           setPosts={setPosts}
