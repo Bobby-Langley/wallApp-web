@@ -8,6 +8,7 @@ import Login from "./scenes/Login";
 import SignUp from "./scenes/Signup";
 import Home from "./scenes/Home";
 import Navbar from "./components/navbar";
+import UpdatePost from "./components/editPost";
 const { firebaseConfig } = require("./config");
 
 firebase.initializeApp(firebaseConfig);
@@ -42,6 +43,7 @@ function App() {
                   <Switch>
                     <Route path="/login" component={Login} />
                     <Route path="/signup" component={SignUp} />
+                    <Route path="/editPost/:postId" component={UpdatePost}/>
                     <Route path="/" component={Home} />
                   </Switch>
                 </Content>
