@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, Redirect, useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import { UserOutlined, MenuOutlined, EditOutlined } from "@ant-design/icons";
-import {getSinglePost} from "./editPost"
+import {getSinglePost} from "./patchApiCall"
 
 
 
