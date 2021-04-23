@@ -28,7 +28,6 @@ function UpdatePost() {
 
     form.setFieldsValue(initialPost);
   }, [post]);
-  
   return (
     <Row justify="center">
       <Col span={10}>
