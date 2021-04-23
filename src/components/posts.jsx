@@ -52,16 +52,13 @@ function Posts({ posts, setPosts, loading, setLoading }) {
 
   return (
     <>
-      <Row justify="center">
-        <Col span={12} >
-          <Col span={8}style={{ alignContent: "center" }}>
+      <Row justify="center" className="alignColumn">
+        <Col span={12} className="alignColumn" >
+          <Col span={12}style={{ alignContent: "center" }}></Col>
             <Title>Posts</Title>
-            <br />
-          </Col>
-
           { !posts ? (loading) : (posts.map((post) => {
             return (
-            //   <Col>
+          
                 <Card
                 className="cardEffect"
                   hoverable
@@ -90,7 +87,6 @@ function Posts({ posts, setPosts, loading, setLoading }) {
                 }
                 >
                 </Card>
-            //   </Col>
             );
         }))}
         </Col>

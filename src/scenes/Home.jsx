@@ -27,19 +27,18 @@ function Home() {
 
   return (
     <>
-      <Row justify="center">
-        <Col>
-          <h3>
+    
+      <Row justify="space-around" >
+        <Col span={24} >
+            <Row justify="center">
+          <Title level={3}  >
             In order to post on the wall, please either
             <Link to="/login"> Login </Link>
             or
             <Link to="/signup"> sign up </Link>.
-          </h3>
-        </Col>
-      </Row>
-      
-      <Row justify="center">
-        <Col>
+          </Title>
+          </Row >
+          
           {user ? (
             <NewPost
               posts={posts}
@@ -48,14 +47,11 @@ function Home() {
               setLoading={setLoading}
             />
           ) : null}
-        </Col>
-      </Row>
-
-      <Col span={24}>
+        
         {loading ? (
-          <div style={{ textAlign: "center" }}>
-            <Spin style={{ textAlign: "center" }} size="large" />{" "}
-          </div>
+          
+            <Spin style={{ textAlign: "center" }} size="large" />
+          
         ) : (
           <>
             <br />
@@ -69,6 +65,7 @@ function Home() {
           </>
         )}
       </Col>
+      </Row>
     </>
   );
 }

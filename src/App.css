@@ -80,12 +80,18 @@
 }
 .icon:hover {
   filter: invert(20%);
-  color: rgb(40, 163, 208) ;
 }
 
 .ant-menu-horizontal {
   border-bottom: none;
   background: none  !important;
+}
+
+.alignColumn{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
 }
 
 .welcome {
@@ -94,9 +100,6 @@
   align-items: center;
   text-align: center;
   margin-right: 2px;
-  
- 
-
 }
 
 
