@@ -36,6 +36,7 @@ function NewPost({ setPosts, setLoading }) {
             <Search
               placeholder="Add posts here"
               allowClear
+              hoverable
               enterButton="Post"
               style={{ width: 400 }}
               size="large"

@@ -3,7 +3,7 @@ import Title from "antd/lib/typography/Title";
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Redirect, useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
-import { UserOutlined, MenuOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined, MenuOutlined, EditOutlined } from "@ant-design/icons";
 import {getSinglePost} from "./patchApiCall"
 
 
@@ -34,23 +34,18 @@ function Posts({ posts, setPosts, loading, setLoading }) {
     const history = useHistory()
     const { id } = useParams()
   const { user } = useContext(UserContext);
-useEffect(() => {
-    getSinglePost(id)
-})
+
   function handleMenuClick(e) {
     console.log("click", {e});
   }
  
   const menu = (
     <Menu onClick={handleMenuClick()}>
-      <Menu.Item key="1" onClick={()=> {return history.push("/editPost/" + post.id)}} icon={<EditOutlined />} > Edit Post 
+      <Menu.Item key="1" onClick={()=> {return history.push("/editPost/update/" + post.id)}} icon={<EditOutlined />} > Edit Post 
        {console.log({post})}
       </Menu.Item>
-      <Menu.Item key="2" onClick={()=> deletePost(post, setPosts, setLoading )} icon={<UserOutlined />}>
+      <Menu.Item key="2" onClick={()=> deletePost(post, setPosts, setLoading )} icon={<DeleteOutlined />}>
         Delete Post
-      </Menu.Item>
-      <Menu.Item key="3" icon={<UserOutlined />}>
-        View Your Post
       </Menu.Item>
     </Menu>
   );
@@ -63,15 +58,17 @@ useEffect(() => {
             <Title>Posts</Title>
             <br />
           </Col>
-          {posts.map((post) => {
+
+          { !posts ? (loading) : (posts.map((post) => {
             return (
-              <Col>
+            //   <Col>
                 <Card
+                className="cardEffect"
                   hoverable
-                  bodyStyle={{ visibility: "hidden" }}
-                  style={{ margin: "24px" }}
-                  key={post.id}
-                  title={post.post}
+                  bordered
+                  style={{ background: "linear-gradient(to right,rgba(40, 163, 208, .5), rgba(40, 163, 208, 0) )", margin: "24px"}}
+                  key={post && post.id}
+                  title={post && post.post}
                   extra={
                       user && user.uid == post.userId ? (
                           <Dropdown
@@ -82,20 +79,20 @@ useEffect(() => {
                             overlay={menu}
                             trigger={["click"]}
                             >
-                        <a
+                        <Button style={{background: "transparent", border: "none", boxShadow: "none"}}
                           className="ant-dropdown-link"
                           onClick={(e) => e.preventDefault(setPost(post)) }
                         >
-                          <MenuOutlined />
-                        </a>
+                          <MenuOutlined/>
+                        </Button>
                       </Dropdown>
                     ) : null
                 }
                 >
                 </Card>
-              </Col>
+            //   </Col>
             );
-        })}
+        }))}
         </Col>
       </Row>
     </>

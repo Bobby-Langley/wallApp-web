@@ -8,49 +8,60 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 function UpdatePost() {
   const [form] = Form.useForm();
-  const [post, setPost] = useState(undefined);
+  const [post, setPost] = useState();
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
-  const { id, mode } = useParams();
+  const { mode, id } = useParams();
   const history = useHistory();
   const [fields, setFields] = useState();
 
   useEffect(() => {
-     {
+    if (mode === "update") {
       getSinglePost(id, setPost);
+
+      console.log(id, "getsingpost update page");
     }
-  }, [id]);
+  }, [mode, id]);
 
   useEffect(() => {
-    const initialPost = {
-      post: post && post.post,
-    };
-
-    form.setFieldsValue(initialPost);
+    if (mode === "update") {
+      form.setFieldsValue({
+        post: post && post.data.post,
+      });
+    }
+    console.log({ post });
   }, [post]);
+
   return (
     <Row justify="center">
       <Col span={10}>
         <Form
-        form={form}
+          form={form}
           layout="horizontal"
-          className="site-layout-content"
-          style={{ width: 400 }}
           fields={fields}
           onFieldsChange={(changedField, allFields) => setFields(allFields)}
           onFinish={(post) => {
             submitUpdate(post, fields, user, history, id, setLoading);
           }}
         >
-          <Form.Item label="Update Post" name="post">
+          <Form.Item
+            label="Edit Your Post"
+            name="post"
+            rules={[
+              {
+                required: true,
+                whitespace: true,
+              },
+            ]}
+          >
             <Input />
           </Form.Item>
           <Form.Item>
             <Row justify="end">
               <Button type="primary" htmlType="submit">
                 Submit
-                {loading && <Spin indicator={antIcon} />}
               </Button>
+                &nbsp; {loading && <Spin indicator={antIcon} />}
             </Row>
           </Form.Item>
         </Form>

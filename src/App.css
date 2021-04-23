@@ -2,6 +2,24 @@
   text-align: center;
 }
 
+.cardEffect{
+  animation: bobble 2s infinite;
+}
+@keyframes bobble{
+    0% {
+        transform: translate3d(50px, 40px, 0px);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: translate3d(50px, 50px, 0px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translate3d(50px, 40px, 0px);
+    }
+}
+
+
 .site-layout-content {
   min-height: 280px;
   padding: 24px;
@@ -24,21 +42,23 @@
 }
 
 .App-header {
-
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color: #f0f2f5;
+  background-color:#656464;
 }
 
 .ant-layout-header {
   height: 64px;
   padding: 0 50px;
   line-height: 64px;
-  background: #f0f2f5  !important;
+  background: white  !important;
+}
+.ant-layout-footer{
+  background: #656464 !important;
 }
 .ant-card-body {
   padding: inherit !important;
@@ -54,25 +74,18 @@
   cursor: pointer;
 }
 
-.buttonRight {
-  float: right;
-  border: 2px;
-  padding: 10px;
-  margin-right: 5px;
-}
 
-.icon:hover {
+.search:hover{
   filter: invert(20%);
 }
-
-.stayRight {
-  float: right;
-  padding: 10px;
+.icon:hover {
+  filter: invert(20%);
+  color: rgb(40, 163, 208) ;
 }
 
 .ant-menu-horizontal {
   border-bottom: none;
-  background: #f0f2f5  !important;
+  background: none  !important;
 }
 
 .welcome {
@@ -81,15 +94,9 @@
   align-items: center;
   text-align: center;
   margin-right: 2px;
+  
  
 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

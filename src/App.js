@@ -19,6 +19,10 @@ function App() {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
+  const userName =
+    !user || !user.displayName
+      ? " user that didn't sign in with Google."
+      : user.displayName;
 
   return (
     <>
@@ -27,12 +31,22 @@ function App() {
           <Layout>
             <Header style={{ color: "grey" }}>
               <Row justify="space-between">
-                <Col span={7} style={{color:"grey"}}>  <h1 >
-                    <Link className="welcome" to="/" style={{fontSize:"26px"}} > <img style={{marginRight: "7px"}} width={24} height={24} src="\circle-cropped.png"></img> TSL Wall App </Link>
+                <Col span={6} style={{color:"grey"}}>  <h1 >
+                    <Link className="welcome" to="/" > <img style={{marginRight: "-10px"}} width={60} height={60} src="\TSL-logo.png"></img> <img  width={170} height={50} src="\wallappLogo.png"></img>   </Link>
                   </h1>
                   </Col>
+                  <Col span={8} style={{float:"center"}}>
+                  {!user ? (
+            <h1> Welcome, to the Wall App, Guest. </h1>   
+          ) : (           
+              <h1>
+                Welcome, {userName}
+              </h1>
+              )}
+        </Col>
+              
             
-            <Col span={17} style={{float:"right"}}>
+            <Col span={8}  style={{float:"right"}}>
                   <Navbar />
                 </Col>
                 </Row>
@@ -43,13 +57,13 @@ function App() {
                   <Switch>
                     <Route path="/login" component={Login} />
                     <Route path="/signup" component={SignUp} />
-                    <Route path="/editPost/:id" component={UpdatePost}/>
+                    <Route path="/editPost/:mode/:id" component={UpdatePost}/>
                     <Route path="/" component={Home} />
                   </Switch>
                 </Content>
               </Col>
             </Row>
-            <Footer style={{ textAlign: "center" }}>
+            <Footer style={{ textAlign: "center", color: "#FFF"}}>
               ©2021 Created by Bobby Langley
             </Footer>
           </Layout>
