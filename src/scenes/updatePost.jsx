@@ -16,7 +16,7 @@ function UpdatePost() {
   const [fields, setFields] = useState();
 
   useEffect(() => {
-    if (mode === "update") {
+     {
       getSinglePost(id, setPost);
     }
   }, [id]);
@@ -32,14 +32,15 @@ function UpdatePost() {
     <Row justify="center">
       <Col span={10}>
         <Form
+        form={form}
           layout="horizontal"
-          enterButton="Post"
+          className="site-layout-content"
           style={{ width: 400 }}
+          fields={fields}
+          onFieldsChange={(changedField, allFields) => setFields(allFields)}
           onFinish={(post) => {
             submitUpdate(post, fields, user, history, id, setLoading);
           }}
-          fields={fields}
-          onFieldsChange={(changedField, field) => setFields(field)}
         >
           <Form.Item label="Update Post" name="post">
             <Input />
@@ -51,7 +52,6 @@ function UpdatePost() {
                 {loading && <Spin indicator={antIcon} />}
               </Button>
             </Row>
-            <p id="formPrompt"></p> <br /> &nbsp;
           </Form.Item>
         </Form>
       </Col>

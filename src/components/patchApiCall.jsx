@@ -2,7 +2,7 @@ import {message} from 'antd'
 
     
 
-export function submitUpdate({ post, fields, user, history, mode, id, setLoading}) {
+export function submitUpdate(post, fields, user, history, id, setLoading) {
     const formValues = {}
 
     fields && fields.forEach((field)=> {
@@ -44,7 +44,7 @@ export function getSinglePost(id, setPost) {
     .then((res) => res.json())
     .then((data) => setPost(data))
     .catch((error) => console.log(error));
-    console.log({ id });
+    console.log({ id }, "getsinglepost id");
   }
 
 
