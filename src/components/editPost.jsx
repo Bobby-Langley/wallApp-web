@@ -39,8 +39,8 @@ export function submitUpdate({ post, fields, user, history, mode, id, setLoading
   
 
 
-export function getSinglePost({id, setPost}) {
-    fetch(`https://wallapp-api-e7762.web.app/posts/${id}`)
+export function getSinglePost(id, setPost) {
+    fetch(`https://wallapp-api-e7762.web.app/post/${id}`)
     .then((res) => res.json())
     .then((data) => setPost(data))
     .catch((error) => console.log(error));
