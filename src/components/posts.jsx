@@ -1,13 +1,12 @@
 import { Dropdown, Button, Card, Col, List, Row, Menu, Spin } from "antd";
 import Title from "antd/lib/typography/Title";
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect, useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import { UserOutlined, MenuOutlined, EditOutlined } from "@ant-design/icons";
+import {getSinglePost} from "./editPost"
 
-function editPost(post){
-   <Link to={"/editPost/" + post.id}> </Link> 
-}
+
 
 function deletePost(post, setPosts, setLoading) {
     {
@@ -32,15 +31,19 @@ function deletePost(post, setPosts, setLoading) {
 
 function Posts({ posts, setPosts, loading, setLoading }) {
     const [post, setPost] = useState()
+    const history = useHistory()
+    const { id } = useParams()
   const { user } = useContext(UserContext);
-
+useEffect(() => {
+    getSinglePost(id)
+})
   function handleMenuClick(e) {
-    console.log("click", e);
+    console.log("click", {e});
   }
-
+ 
   const menu = (
-    <Menu onClick={handleMenuClick}>
-      <Menu.Item key="1"  onClick={()=> editPost(post)} icon={<EditOutlined />}> Edit Post 
+    <Menu onClick={handleMenuClick()}>
+      <Menu.Item key="1" onClick={()=> {return history.push("/editPost/" + post.id)}} icon={<EditOutlined />} > Edit Post 
        {console.log({post})}
       </Menu.Item>
       <Menu.Item key="2" onClick={()=> deletePost(post, setPosts, setLoading )} icon={<UserOutlined />}>
@@ -70,15 +73,15 @@ function Posts({ posts, setPosts, loading, setLoading }) {
                   key={post.id}
                   title={post.post}
                   extra={
-                    user && user.uid == post.userId ? (
-                      <Dropdown
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                        overlay={menu}
-                        trigger={["click"]}
-                      >
+                      user && user.uid == post.userId ? (
+                          <Dropdown
+                          style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                            }}
+                            overlay={menu}
+                            trigger={["click"]}
+                            >
                         <a
                           className="ant-dropdown-link"
                           onClick={(e) => e.preventDefault(setPost(post)) }
@@ -87,13 +90,12 @@ function Posts({ posts, setPosts, loading, setLoading }) {
                         </a>
                       </Dropdown>
                     ) : null
-                  }
+                }
                 >
-                  {" "}
                 </Card>
               </Col>
             );
-          })}
+        })}
         </Col>
       </Row>
     </>

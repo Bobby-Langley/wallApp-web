@@ -1,55 +1,50 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "../App";
-import { Col, Row, Space } from "antd";
-import Search from "antd/lib/input/Search";
+import {message} from 'antd'
 
-function UpdatePost({ post, setPosts, setLoading }) {
-  const [updatedPost, setUpdatedPost] = useState(null);
-  const { user } = useContext(UserContext);
-  function updatePost() {
-    if (updatedPost && updatedPost.post && updatedPost.post.trim()) {
+    
+
+export function submitUpdate({ post, fields, user, history, mode, id, setLoading}) {
+    const formValues = {}
+
+    fields && fields.forEach((field)=> {
+        return (formValues[field.name[0]] = field.value)
+    })
+
+    if (!user) return null;
+    
+  formValues.userId = user.userId
+  console.log({formValues})
+  
+   {
       setLoading(true);
-      fetch("https://wallapp-api-e7762.web.app/posts/", {
+      fetch("https://wallapp-api-e7762.web.app/posts/"+ id, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(updatedPost),
+        body: JSON.stringify(formValues),
       })
-        .then((res) => res.json())
-        .then((data) => {
-          setPosts(data);
+      .then((result) => result.json())
+      .then((data) => {
+        
           setLoading(false);
-        })
-        .catch((e) => {
-          setLoading(false);
-          console.log("error:", e);
-        });
+          return (
+            history.push(`/`) && message("Post Updated.")
+          )
+      })
+      .catch(() => setLoading(false));
     }
-    setUpdatedPost(null);
-  }
-  return (
-    <>
-      <Row justify="center">
-        <Col span={10}>
-          <Space direction="vertical">
-            <Search
-              placeholder="Add posts here"
-              allowClear
-              enterButton="Post"
-              style={{ width: 400 }}
-              size="large"
-              onSearch={updatePost}
-              value={updatedPost ? updatedPost.post : null}
-              onChange={(e) =>
-                setUpdatedPost({ post: e.target.value, userId: user.uid })
-              }
-            />
-          </Space>
-        </Col>
-      </Row>
-    </>
-  );
+    console.log({post})
 }
+  
+  
 
-export default UpdatePost;
+
+export function getSinglePost({id, setPost}) {
+    fetch(`https://wallapp-api-e7762.web.app/posts/${id}`)
+    .then((res) => res.json())
+    .then((data) => setPost(data))
+    .catch((error) => console.log(error));
+    console.log({ id });
+  }
+
+
