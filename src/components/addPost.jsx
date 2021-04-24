@@ -28,7 +28,6 @@ function NewPost({ setPosts, setLoading }) {
     }
     setNewPost(null);
   }
-  
   return (
     <>
       <Row justify="center">
