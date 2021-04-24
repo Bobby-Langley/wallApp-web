@@ -4,6 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, Redirect, useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import { DeleteOutlined, MenuOutlined, EditOutlined } from "@ant-design/icons";
+import NewPost from '../components/addPost'
 import {getSinglePost} from "./patchApiCall"
 
 
@@ -52,8 +53,17 @@ function Posts({ posts, setPosts, loading, setLoading }) {
 
   return (
     <>
+
       <Row type="flex" align="middle" justify="center" className="alignColumn">
         <Col span={12} className="alignColumn" >
+        {user ? (
+            <NewPost
+              posts={posts}
+              setPosts={setPosts}
+              loading={loading}
+              setLoading={setLoading}
+            />
+          ) : null}
             <Row type="flex" align="middle">
           <Col >
             <Title style={{ textAlign: "center" }} >Posts</Title>

@@ -31,24 +31,19 @@ function Home() {
       <Row justify="space-around" >
         <Col span={24} >
             <Row justify="center">
-          <Title level={3}  >
+
+          {!user ? (<Title level={3}  >
             In order to post on the wall, please either
             <Link to="/login"> Login </Link>
             or
             <Link to="/signup"> sign up </Link>.
-          </Title>
-          </Row >
-          
-          {user ? (
-            <NewPost
-              posts={posts}
-              setPosts={setPosts}
-              loading={loading}
-              setLoading={setLoading}
-            />
-          ) : null}
-        
-        {loading ? (
+          </Title>) : (null) 
+        }
+       </Row>
+       
+       
+       
+       {loading ? (
           
             <Spin style={{ textAlign: "center" }} size="large" />
           
