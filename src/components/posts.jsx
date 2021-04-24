@@ -52,10 +52,13 @@ function Posts({ posts, setPosts, loading, setLoading }) {
 
   return (
     <>
-      <Row justify="center" className="alignColumn">
+      <Row type="flex" align="middle" justify="center" className="alignColumn">
         <Col span={12} className="alignColumn" >
-          <Col span={12}style={{ alignContent: "center" }}></Col>
-            <Title>Posts</Title>
+            <Row type="flex" align="middle">
+          <Col >
+            <Title style={{ textAlign: "center" }} >Posts</Title>
+            </Col>
+            </Row>
           { !posts ? (loading) : (posts.map((post) => {
             return (
           
