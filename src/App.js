@@ -8,7 +8,7 @@ import Login from "./scenes/Login";
 import SignUp from "./scenes/Signup";
 import Home from "./scenes/Home";
 import Navbar from "./components/navbar";
-import UpdatePost from "./scenes/updatePost";
+import UpdatePost from "./scenes/UpdatePost";
 const { firebaseConfig } = require("./config");
 
 firebase.initializeApp(firebaseConfig);
@@ -29,13 +29,13 @@ function App() {
       <UserContext.Provider value={{ user, setUser, firebaseAuth }}>
         <Router>
           <Layout>
-            <Header style={{ color: "grey" }}>
+            <Header >
               <Row justify="space-between">
                 <Col span={6} style={{color:"grey"}}>  <h1 >
-                    <Link className="welcome" to="/" > <img style={{marginRight: "-15px"}} width={90} height={90} src="\TSL-logo.png"></img> <img  width={170} height={50} src="\wallappLogo.png"></img>   </Link>
+                    <Link className="welcome" to="/" > <img style={{marginRight: "-15px"}} width={75} height={75} src="\TSL-logo.png"></img> <img  width={170} height={40} src="\wallappLogo2.png"></img>   </Link>
                   </h1>
                   </Col>
-                  <Col span={8} style={{float:"center"}}>
+                  <Col className="welcome" span={6} style={{float:"center"}}>
                   {!user ? (
             <h1> Welcome, to the Wall App, Guest. </h1>   
           ) : (           
@@ -46,7 +46,7 @@ function App() {
         </Col>
               
             
-            <Col span={8}  style={{float:"right"}}>
+            <Col span={6}  style={{float:"right"}}>
                   <Navbar />
                 </Col>
                 </Row>
@@ -63,7 +63,7 @@ function App() {
                 </Content>
               </Col>
             </Row>
-            <Footer style={{ textAlign: "center", color: "#FFF"}}>
+            <Footer flex="1" style={{textAlign: "center", color: "#FFF", flex: "1", marginTop: "auto"}}>
               ©2021 Created by Bobby Langley
             </Footer>
           </Layout>

@@ -32,20 +32,20 @@ function Navbar() {
     <>
       <Menu mode="horizontal" defaultSelectedKeys={["1"]} style={rightStyle}>
          
-        { user ? (<Menu.Item style={{fontSize:"16px"}} key="3" icon={<UserOutlined />}>
+        { user ? (<Menu.Item style={{fontSize:"16px"}} key="5" icon={<UserOutlined />}>
           <Link  to="/user/">Your Posts</Link>
         </Menu.Item>) : ( <Menu.Item></Menu.Item> )}
         
         {user ? (
-          <Menu.Item style={{fontSize:"16px"}} key="6" onClick={() => signOut() }>
+          <Menu.Item style={{fontSize:"16px"}} key="4" onClick={() => signOut() }>
             {<Avatar size={36} src={userImage} />} Logout
           </Menu.Item>
         ) : (
           <>
-            <Menu.Item style={{fontSize:"16px"}} key="7">
+            <Menu.Item style={{fontSize:"16px"}} key="2">
               <Link  to="/login">Log In</Link>
             </Menu.Item>
-            <Menu.Item style={{fontSize:"16px"}} key="8">
+            <Menu.Item style={{fontSize:"16px"}} key="3">
               <Link to="/signup">Sign Up</Link>
             </Menu.Item>
           </>
