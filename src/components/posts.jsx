@@ -46,7 +46,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
         }}
         icon={<EditOutlined />}
       >
-        {" "}
+        
         Edit Post
         {console.log({ post })}
       </Menu.Item>
@@ -85,7 +85,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
             : posts.map((post) => {
                 return (
                   <Card
-                    // className="cardEffect"
+                    className="cardEffect"
                     hoverable
                     bordered
                     style={{
