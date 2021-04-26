@@ -3,7 +3,7 @@ import Title from "antd/lib/typography/Title";
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Redirect, useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
-import { DeleteOutlined, MenuOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteTwoTone, MenuOutlined, EditTwoTone } from "@ant-design/icons";
 import NewPost from "../components/addPost";
 import { getSinglePost } from "./patchApiCall";
 
@@ -44,7 +44,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
         onClick={() => {
           return history.push("/editPost/update/" + post.id);
         }}
-        icon={<EditOutlined />}
+        icon={<EditTwoTone />}
       >
         
         Edit Post
@@ -53,7 +53,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
       <Menu.Item
         key="2"
         onClick={() => deletePost(post, setPosts, setLoading)}
-        icon={<DeleteOutlined />}
+        icon={<DeleteTwoTone />}
       >
         Delete Post
       </Menu.Item>
@@ -63,7 +63,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
   return (
     <>
       <Row type="flex" align="middle" justify="center" className="alignColumn">
-        <Col span={12} className="alignColumn">
+        <Col span={14} className="alignColumn">
           {user ? (
             <NewPost
               posts={posts}
@@ -81,10 +81,11 @@ function Posts({ posts, setPosts, loading, setLoading }) {
             : posts.map((post) => {
                 return (
                   <Card
-                    className="cardEffect"
+                    // className="cardEffect"
                     hoverable
                     bordered
                     style={{
+                        
                       background:
                         "linear-gradient(to right,rgba(40, 163, 208, .5), rgba(40, 163, 208, 0) )",
                       margin: "24px",

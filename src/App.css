@@ -10,15 +10,15 @@
 }
 @keyframes bobble{
     0% {
-        transform: translate3d(50px, 40px, 0px);
+        transform: translate3d(20px, 10px, 0px);
         animation-timing-function: ease-in;
     }
     50% {
-        transform: translate3d(50px, 90px, 0px);
+        transform: translate3d(20px, 20px, 0px);
         animation-timing-function: ease-out;
     }
     100% {
-        transform: translate3d(50px, 40px, 0px);
+        transform: translate3d(20px, 10px, 0px);
     }
 }
 
@@ -52,12 +52,14 @@
 
 .ant-layout-header {
   height: 64px;
-  padding: 0 50px;
+  padding: 0 50px !important;
   line-height: 64px;
   background: white  !important;
 }
 .ant-layout-footer{
   background: #656464 !important;
+  justify-content: center;
+  padding: 45px !important;
   flex-shrink: 0 !important;
 }
 .ant-card-body {

@@ -40,17 +40,9 @@ function Home() {
           </Title>) : (null) 
         }
        </Row>
-       
-       
-       
-       {loading ? (
-          
-            <Spin style={{ textAlign: "center" }} size="large" />
-          
-        ) : (
+
           <>
             <br />
-
             <Posts
               posts={posts}
               setPosts={setPosts}
@@ -58,7 +50,7 @@ function Home() {
               setLoading={setLoading}
             />
           </>
-        )}
+    
       </Col>
       </Row>
     </>

@@ -33,6 +33,7 @@ function UpdatePost() {
   }, [post]);
 
   return (
+      <>
     <Row justify="center">
       <Col span={10}>
         <Form
@@ -44,6 +45,9 @@ function UpdatePost() {
             submitUpdate(post, fields, user, history, id, setLoading);
           }}
         >
+            <br/>
+            <br/>
+            
           <Form.Item
             label="Edit Your Post"
             name="post"
@@ -67,6 +71,7 @@ function UpdatePost() {
         </Form>
       </Col>
     </Row>
+    </>
   );
 }
 
