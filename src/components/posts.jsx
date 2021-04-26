@@ -75,11 +75,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
           <br />
           <br />
 
-          <Row align="center">
-            <Col>
-              <Title level={2}>Posts</Title>
-            </Col>
-          </Row>
+          
           {!posts
             ? loading
             : posts.map((post) => {

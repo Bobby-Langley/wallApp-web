@@ -32,7 +32,7 @@ function App() {
             <Header >
               <Row justify="space-between">
                 <Col span={6} style={{color:"grey"}}>  <h1 >
-                    <Link className="welcome" to="/" > <img style={{marginRight: "-15px"}} width={75} height={75} src="\TSL-logo.png"></img> <img  width={170} height={40} src="\wallappLogo2.png"></img>   </Link>
+                    <Link className="welcome" to="/" > <img style={{marginRight: "-15px"}} width={75} height={75} src="\TSL-logo.png"></img> <img  width={170} height={40} src="\wallappLogo.png"></img>   </Link>
                   </h1>
                   </Col>
                   <Col className="welcome" span={6} style={{float:"center"}}>
