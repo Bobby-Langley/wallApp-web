@@ -30,11 +30,12 @@ export function submitUpdate(
         .then((result) => result.json())
         .then((data) => {
           setLoading(false);
-          return history.push(`/`) && message("Post Updated.");
+          message.success("Post Updated.");
+          return history.push(`/`)
         })
         .catch(() => setLoading(false));
     }
-    console.log({ post });
+    
   }
 
 

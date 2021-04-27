@@ -38,7 +38,7 @@ function NewPost({ setPosts, loading, setLoading }) {
               allowClear
               hoverable
               enterButton="Post"
-              style={{ width: 400 }}
+              style={{ width: 400 }}      
               size="large"
               onSearch={addPost}
               loading={loading}

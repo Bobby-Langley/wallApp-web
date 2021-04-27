@@ -1,17 +1,31 @@
-import { Dropdown, Button, Card, Col, List, Row, Menu, Spin, Paragraph } from "antd";
-import Title from "antd/lib/typography/Title";
-import React, { useState, useEffect, useContext } from "react";
-import { Link, Redirect, useParams, useHistory } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
-import { DeleteTwoTone, MenuOutlined, EditTwoTone } from "@ant-design/icons";
 import NewPost from "./newPost";
-import { getSinglePost } from "./patchApiCall";
+import { DeleteTwoTone, MenuOutlined, EditTwoTone } from "@ant-design/icons";
+import {
+  Dropdown,
+  Button,
+  Card,
+  Col,
+  Row,
+  Menu,
+  message,
+  Popconfirm,
+} from "antd";
 
+function confirm(post, setPosts, setLoading) {
+  deletePost(post, setPosts, setLoading);
+  message.success("Post Deleted.");
+}
+
+function cancel(e) {
+  console.log(e);
+  message.error("Possibly a sound decision.");
+}
 
 function deletePost(post, setPosts, setLoading) {
-  {
-    setLoading(true);
-  }
+  setLoading(true);
   const API_URL = `https://wallapp-api-e7762.web.app/posts/${post.id}`;
   const params = {
     method: "DELETE",
@@ -23,7 +37,7 @@ function deletePost(post, setPosts, setLoading) {
       setLoading(false);
     })
     .catch((err) => {
-      console.log("error updating item: ", err);
+      console.log("error deleting post: ", err);
       setLoading(false);
     });
 }
@@ -34,99 +48,96 @@ function Posts({ posts, setPosts, loading, setLoading }) {
   const { id } = useParams();
   const { user } = useContext(UserContext);
 
-  function handleMenuClick(e) {
-   
-  }
+  function handleMenuClick(e) {}
 
   const menu = (
-    <Menu onClick={handleMenuClick()}
-    loading={loading}>
+    <Menu onClick={handleMenuClick()} loading={loading}>
       <Menu.Item
         key="1"
-       
         onClick={() => {
           return history.push("/editPost/update/" + post.id);
         }}
         icon={<EditTwoTone />}
       >
-        
         Edit Post
-       
       </Menu.Item>
       <Menu.Item
         key="2"
-       
-        onClick={() => deletePost(post, setPosts, setLoading)}
+        // onClick={() => popconfirm(post, setPosts, setLoading)}
         icon={<DeleteTwoTone />}
       >
-        Delete Post
+        <Popconfirm
+          title="Are you sure about that? This can't be undone."
+          onConfirm={() => confirm(post, setPosts, setLoading)}
+          onCancel={cancel}
+          okText="Yes, delete post."
+          cancelText="No, I'm not sure."
+        >
+          Delete Post
+        </Popconfirm>
       </Menu.Item>
     </Menu>
   );
 
   return (
     <>
-      <Row type="flex" align="middle" justify="center" className="alignColumn">
+      <Row type="flex" justify="center" className="alignColumn">
         <Col span={14} className="alignColumn">
           {user ? (
-              <>
-               <p style={{textAlign: "center", fontSize: "16px"}}>Add something to The Wall.</p>
-            <NewPost
-              posts={posts}
-              setPosts={setPosts}
-              loading={loading}
-              setLoading={setLoading}
-            />
+            <>
+              <p style={{ textAlign: "center", fontSize: "16px" }}>
+                Add something to The Wall.
+              </p>
+              <NewPost
+                posts={posts}
+                setPosts={setPosts}
+                loading={loading}
+                setLoading={setLoading}
+              />
             </>
           ) : null}
           <br />
           <br />
-
-
-          
-          {posts && posts.map((post) => {
-                return (
-                  <Card
-                    hoverable
-                    bordered
-                    style={{
-                        
-                        background:
-                        "linear-gradient(to right,rgba(40, 163, 208, .5), rgba(40, 163, 208, 0) )",
-                        margin: "24px",
-                    }}
-                    key={post && post.id}
-                    title={post && post.post}
-                    extra={
-                      user && user.uid == post.userId ? (
-                        <Dropdown
+          {posts &&
+            posts.map((post) => {
+              return (
+                <Card
+                  hoverable
+                  bordered
+                  style={{
+                    background:
+                      "linear-gradient(to right,rgba(40, 163, 208, .5), rgba(40, 163, 208, 0) )",
+                    margin: "24px",
+                  }}
+                  key={post && post.id}
+                  title={post && post.post}
+                  extra={
+                    user && user.uid == post.userId ? (
+                      <Dropdown
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                        overlay={menu}
+                        trigger={["click"]}
+                      >
+                        <Button
                           style={{
-                            display: "flex",
-                            justifyContent: "space-between",
+                            background: "transparent",
+                            border: "none",
+                            boxShadow: "none",
                           }}
-                          overlay={menu}
-                          trigger={["click"]}
+                          className="ant-dropdown-link"
+                          onClick={(e) => e.preventDefault(setPost(post))}
                         >
-                          <Button
-                         
-                            style={{
-                              background: "transparent",
-                              border: "none",
-                              boxShadow: "none",
-                            }}
-                            className="ant-dropdown-link"
-                            onClick={(e) => e.preventDefault(setPost(post))}
-                          >
-                            <MenuOutlined />
-                          </Button>
-                        </Dropdown>
-                      ) : null 
-                    }
-                  ></Card>
-                );
-              })
-}
-            
+                          <MenuOutlined />
+                        </Button>
+                      </Dropdown>
+                    ) : null
+                  }
+                ></Card>
+              );
+            })}
         </Col>
       </Row>
     </>

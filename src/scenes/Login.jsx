@@ -34,12 +34,6 @@ const tooltip = (
   </span>
 );
 
-
-const componentClicked = (setUser) => {
-  setUser();
-  console.log("Clicked!");
-};
-
 const Login = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -86,69 +80,74 @@ const Login = () => {
   };
 
   return (
-    <Row justify="center">
-      <Col span={10}>
-        <Form
-          {...layout}
-          name="basic"
-          initialValues={{
-            remember: true,
-          }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-        >
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[
-              {
-                required: true,
-                message: "Please input your username!",
-              },
-            ]}
+    <>
+      <br />
+      <Row justify="center">
+        <Col span={10} style={{ padding: "50px" }}>
+          <Form
+            {...layout}
+            name="basic"
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
           >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your password.",
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
-
-          <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
-          <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
-              <Tooltip placement="top" title={tooltip}>
-                Login
-              </Tooltip>
-            </Button>
-
-            {error && <Typography.Text type="danger">{error}</Typography.Text>}
-          </Form.Item>
-          <Form.Item {...tailLayout}>
-            <Button
-              type="primary"
-              icon={<GoogleOutlined />}
-              loading={loading}
-              onClick={() => loginWithGoogle(setUser)}
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your username!",
+                },
+              ]}
             >
-              Continue with Google
-            </Button>
-          </Form.Item>
-        </Form>
-      </Col>
-    </Row>
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password.",
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+
+            <Form.Item {...tailLayout}>
+              <Button type="primary" htmlType="submit">
+                <Tooltip placement="top" title={tooltip}>
+                  Login
+                </Tooltip>
+              </Button>
+              &nbsp;
+              {error && (
+                <Typography.Text type="danger">{error}</Typography.Text>
+              )}
+            </Form.Item>
+            <Form.Item {...tailLayout}>
+              <Button
+                type="primary"
+                icon={<GoogleOutlined />}
+                loading={loading}
+                onClick={() => loginWithGoogle(setUser)}
+              >
+                Continue with Google
+              </Button>
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+    </>
   );
 };
 

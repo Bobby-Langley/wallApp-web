@@ -70,76 +70,75 @@ const SignUp = () => {
   };
 
   return (
-    <Row justify="center">
-      <Col span={10}>
-        <Form
-          {...layout}
-          name="basic"
-          initialValues={{
-            remember: true,
-          }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-        >
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[
-              {
-                required: true,
-                message: "Please input your email.",
-              },
-            ]}
+    <>
+      <br />
+      <Row justify="center">
+        <Col span={10} style={{ padding: "50px" }}>
+          <Form
+            {...layout}
+            name="basic"
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
           >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "Please input a password.",
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
-
-          <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
-          <Form.Item {...tailLayout}>
-            {error && (
-              <>
-                <Typography.Text type="danger">{error}</Typography.Text>
-                <br />
-                <br />
-              </>
-            )}
-
-            <Button type="primary" htmlType="submit">
-              <Tooltip placement="top" title={tooltip}>
-                Sign Up
-              </Tooltip>
-            </Button>
-          </Form.Item>
-
-          <Form.Item {...tailLayout}>
-            <Button
-              type="primary"
-              icon={<GoogleOutlined />}
-              loading={loading}
-              onClick={() => loginWithGoogle()}
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your email.",
+                },
+              ]}
             >
-              Sign up with Google
-            </Button>
-          </Form.Item>
-        </Form>
-      </Col>
-    </Row>
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input a password.",
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+
+            <Form.Item {...tailLayout}>
+              <Button type="primary" htmlType="submit">
+                <Tooltip placement="top" title={tooltip}>
+                  Sign Up
+                </Tooltip>
+              </Button>
+              &nbsp;
+              {error && (
+                <Typography.Text type="danger">{error}</Typography.Text>
+              )}
+            </Form.Item>
+
+            <Form.Item {...tailLayout}>
+              <Button
+                type="primary"
+                icon={<GoogleOutlined />}
+                loading={loading}
+                onClick={() => loginWithGoogle()}
+              >
+                Sign up with Google
+              </Button>
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+    </>
   );
 };
 

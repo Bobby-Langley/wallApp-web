@@ -2,10 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { getSinglePost, submitUpdate } from "../components/patchApiCall";
 import { UserContext } from "../App";
-import { Button, Col, Form, Input, Row, Space, Spin } from "antd";
+import { Button, Col, Form, Input, Row, Space, Spin, Card } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
+const {TextArea} = Input
 function UpdatePost() {
   const [form] = Form.useForm();
   const [post, setPost] = useState();
@@ -34,8 +35,18 @@ function UpdatePost() {
 
   return (
       <>
-    <Row justify="center">
+    <Row justify="center" style={{padding: "50px"}}>
       <Col span={10}>
+          <Card
+          hoverable
+          bordered
+          style={{
+            background:
+              "linear-gradient(to right,rgba(40, 163, 208, .5), rgba(40, 163, 208, 0) )",
+            margin: "24px",
+            padding: "10px"
+          }}
+          >
         <Form
           form={form}
           layout="horizontal"
@@ -50,6 +61,7 @@ function UpdatePost() {
             
           <Form.Item
             label="Edit Your Post"
+            style={{fontVariant: "tabular-nums"}}
             name="post"
             rules={[
               {
@@ -58,7 +70,8 @@ function UpdatePost() {
               },
             ]}
           >
-            <Input />
+            <TextArea
+             autoSize={{ minRows: 1, maxRows: 6 }} />
           </Form.Item>
           <Form.Item>
             <Row justify="end">
@@ -68,7 +81,8 @@ function UpdatePost() {
               
             </Row>
           </Form.Item>
-        </Form>
+        </Form> 
+        </Card>
       </Col>
     </Row>
     </>
