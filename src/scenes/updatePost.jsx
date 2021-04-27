@@ -62,10 +62,10 @@ function UpdatePost() {
           </Form.Item>
           <Form.Item>
             <Row justify="end">
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={loading}>
                 Submit
               </Button>
-                &nbsp; {loading && <Spin indicator={antIcon} />}
+              
             </Row>
           </Form.Item>
         </Form>

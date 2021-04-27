@@ -1,11 +1,12 @@
-import { Dropdown, Button, Card, Col, List, Row, Menu, Spin } from "antd";
+import { Dropdown, Button, Card, Col, List, Row, Menu, Spin, Paragraph } from "antd";
 import Title from "antd/lib/typography/Title";
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Redirect, useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import { DeleteTwoTone, MenuOutlined, EditTwoTone } from "@ant-design/icons";
-import NewPost from "../components/addPost";
+import NewPost from "./newPost";
 import { getSinglePost } from "./patchApiCall";
+
 
 function deletePost(post, setPosts, setLoading) {
   {
@@ -34,13 +35,15 @@ function Posts({ posts, setPosts, loading, setLoading }) {
   const { user } = useContext(UserContext);
 
   function handleMenuClick(e) {
-    console.log("click", { e });
+   
   }
 
   const menu = (
-    <Menu onClick={handleMenuClick()}>
+    <Menu onClick={handleMenuClick()}
+    loading={loading}>
       <Menu.Item
         key="1"
+       
         onClick={() => {
           return history.push("/editPost/update/" + post.id);
         }}
@@ -48,10 +51,11 @@ function Posts({ posts, setPosts, loading, setLoading }) {
       >
         
         Edit Post
-        {console.log({ post })}
+       
       </Menu.Item>
       <Menu.Item
         key="2"
+       
         onClick={() => deletePost(post, setPosts, setLoading)}
         icon={<DeleteTwoTone />}
       >
@@ -65,30 +69,31 @@ function Posts({ posts, setPosts, loading, setLoading }) {
       <Row type="flex" align="middle" justify="center" className="alignColumn">
         <Col span={14} className="alignColumn">
           {user ? (
+              <>
+               <p style={{textAlign: "center", fontSize: "16px"}}>Add something to The Wall.</p>
             <NewPost
               posts={posts}
               setPosts={setPosts}
               loading={loading}
               setLoading={setLoading}
             />
+            </>
           ) : null}
           <br />
           <br />
 
+
           
-          {!posts
-            ? loading
-            : posts.map((post) => {
+          {posts && posts.map((post) => {
                 return (
                   <Card
-                    // className="cardEffect"
                     hoverable
                     bordered
                     style={{
                         
-                      background:
+                        background:
                         "linear-gradient(to right,rgba(40, 163, 208, .5), rgba(40, 163, 208, 0) )",
-                      margin: "24px",
+                        margin: "24px",
                     }}
                     key={post && post.id}
                     title={post && post.post}
@@ -103,6 +108,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
                           trigger={["click"]}
                         >
                           <Button
+                         
                             style={{
                               background: "transparent",
                               border: "none",
@@ -114,11 +120,13 @@ function Posts({ posts, setPosts, loading, setLoading }) {
                             <MenuOutlined />
                           </Button>
                         </Dropdown>
-                      ) : null
+                      ) : null 
                     }
                   ></Card>
                 );
-              })}
+              })
+}
+            
         </Col>
       </Row>
     </>

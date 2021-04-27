@@ -61,8 +61,9 @@ function Navbar() {
             {!user ? (
               <p> Welcome, to the Wall App, Guest. </p>
             ) : (
-              <p>Welcome, {userName}</p>
+              <p>Welcome, {userName}. </p>
             )}
+           
           </Col>
 
           <Col span={6} style={{ float: "right" }}>

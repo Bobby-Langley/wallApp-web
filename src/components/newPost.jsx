@@ -3,7 +3,7 @@ import { UserContext } from "../App";
 import { Col, Row, Space } from "antd";
 import Search from "antd/lib/input/Search";
 
-function NewPost({ setPosts, setLoading }) {
+function NewPost({ setPosts, loading, setLoading }) {
   const [newPost, setNewPost] = useState(null);
   const { user } = useContext(UserContext);
   function addPost() {
@@ -41,6 +41,7 @@ function NewPost({ setPosts, setLoading }) {
               style={{ width: 400 }}
               size="large"
               onSearch={addPost}
+              loading={loading}
               value={newPost ? newPost.post : null}
               onChange={(e) =>
                 setNewPost({ post: e.target.value, userId: user.uid })

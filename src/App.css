@@ -2,7 +2,12 @@
   text-align: center;
 }
 .body{
-  max-height: 100vh;
+  max-height: 100vh !important;
+  
+  
+}
+.ant-layout-content{
+  min-height: 87vh !important;
 }
 
 .cardEffect{
@@ -29,6 +34,7 @@
   background: rgba(255, 255, 255, 0.75) !important;
   max-width: 600px;
   margin: auto;
+ 
 }
 .App-logo {
   height: 40vmin;
@@ -59,8 +65,13 @@
 .ant-layout-footer{
   background: #656464 !important;
   justify-content: center;
-  padding: 45px !important;
-  flex-shrink: 0 !important;
+  font-weight: 600px;
+ 
+ 
+  
+  
+  
+  
 }
 .ant-card-body {
   padding: inherit !important;

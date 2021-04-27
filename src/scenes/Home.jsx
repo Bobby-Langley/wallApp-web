@@ -3,14 +3,12 @@ import { Col, Row, Spin } from "antd";
 import Title from "antd/lib/typography/Title";
 import { Link } from "react-router-dom";
 import { UserContext } from "../App";
-import NewPost from "../components/addPost";
 import Posts from "../components/posts";
 
 function Home() {
   const [posts, setPosts] = useState();
   const [loading, setLoading] = useState(true);
   const { user } = useContext(UserContext);
-  // console.log(user)
   useEffect(() => {
     setLoading(true);
     fetch("https://wallapp-api-e7762.web.app/posts")
@@ -27,8 +25,9 @@ function Home() {
 
   return (
     <>
-    
+    <br/>
       <Row justify="space-around" >
+          {/* <br/> */}
         <Col span={24} >
             <Row justify="center">
 
@@ -43,12 +42,14 @@ function Home() {
 
           <>
             <br />
+           
             <Posts
               posts={posts}
               setPosts={setPosts}
               loading={loading}
               setLoading={setLoading}
             />
+
           </>
     
       </Col>

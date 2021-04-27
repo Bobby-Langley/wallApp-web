@@ -34,9 +34,6 @@ const tooltip = (
   </span>
 );
 
-const responseFacebook = (response) => {
-  console.log(response);
-};
 
 const componentClicked = (setUser) => {
   setUser();
@@ -148,9 +145,6 @@ const Login = () => {
             >
               Continue with Google
             </Button>
-          </Form.Item>
-          <Form.Item>
-            {/* <FacebookLogin appId="426859725081972" autoLoad={true} fields="name,email,picture" onClick={()=> componentClicked} callback={responseFacebook} /> */}
           </Form.Item>
         </Form>
       </Col>

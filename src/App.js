@@ -20,22 +20,21 @@ function App() {
     JSON.parse(localStorage.getItem("user")) || null
   );
 
-
   return (
     <>
       <UserContext.Provider value={{ user, setUser, firebaseAuth }}>
         <Router>
           <Layout>
-           <Navbar/>
-                <Content style={{ padding: "0 50px", minHeight: "80vh"  }}>
-                  <Switch>
-                    <Route path="/login" component={Login} />
-                    <Route path="/signup" component={SignUp} />
-                    <Route path="/editPost/:mode/:id" component={UpdatePost}/>
-                    <Route path="/" component={Home} />
-                  </Switch>
-                </Content>
-            <Footer style={{textAlign: "center", color: "#FFF"}}>
+            <Navbar />
+            <Content style={{ padding: "0 50px", minHeight: "80vh" }}>
+              <Switch>
+                <Route path="/login" component={Login} />
+                <Route path="/signup" component={SignUp} />
+                <Route path="/editPost/:mode/:id" component={UpdatePost} />
+                <Route path="/" component={Home} />
+              </Switch>
+            </Content>
+            <Footer style={{ textAlign: "center", color: "#FFF" }}>
               ©2021 Created by Bobby Langley
             </Footer>
           </Layout>
