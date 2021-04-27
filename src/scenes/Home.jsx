@@ -15,7 +15,6 @@ function Home() {
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
-        console.log({ data });
         setLoading(false);
       })
       .catch((e) => {

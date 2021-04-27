@@ -20,7 +20,6 @@ function confirm(post, setPosts, setLoading) {
 }
 
 function cancel(e) {
-  console.log(e);
   message.error("Possibly a sound decision.");
 }
 
@@ -63,8 +62,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
       </Menu.Item>
       <Menu.Item
         key="2"
-        // onClick={() => popconfirm(post, setPosts, setLoading)}
-        icon={<DeleteTwoTone />}
+        
       >
         <Popconfirm
           title="Are you sure about that? This can't be undone."
@@ -73,7 +71,7 @@ function Posts({ posts, setPosts, loading, setLoading }) {
           okText="Yes, delete post."
           cancelText="No, I'm not sure."
         >
-          Delete Post
+         <DeleteTwoTone /> Delete Post
         </Popconfirm>
       </Menu.Item>
     </Menu>

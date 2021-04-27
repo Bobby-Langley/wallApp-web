@@ -1,26 +1,16 @@
 import { render, screen } from '@testing-library/react';
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import App from './App';
 
-it("renders without crashing", () => {
-  shallow(<App />);
-});
+test(`canary`, () => {
+  expect(true).toBe(true);
+})
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/bobby/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test("renders the correct content", () => {
+  const root = document.createElement("div")
+  ReactDOM.render(<App />, root)
 
+  expect(root.querySelector("Footer")).toHaveTextContent.toBe("Bobby")
+})
 
-describe('App', () => {
-  it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(<App/>, div);
-  });
-});
-
-describe('App', () => {
-  it('should be able to run tests', () => {
-      expect(1 + 2).toEqual(3);
-  });
-});

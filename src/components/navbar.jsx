@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Menu, Layout, Divider, Row, Col } from "antd";
+import { Menu, Layout, Row, Col } from "antd";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import Avatar from "antd/lib/avatar/avatar";
-import { UserOutlined } from "@ant-design/icons";
 import { Header } from "antd/lib/layout/layout";
-const { Sider } = Layout;
+
 const rightStyle = { position: "absolute", top: 0, right: 0 };
 
 function Navbar() {
@@ -43,7 +42,6 @@ function Navbar() {
         <Row justify="space-between">
           <Col span={6} style={{ float: "left" }}>
             <Link className="welcome" to="/">
-              
               <img
                 style={{ marginRight: "-15px" }}
                 width={75}
@@ -63,7 +61,6 @@ function Navbar() {
             ) : (
               <p>Welcome, {userName}. </p>
             )}
-           
           </Col>
 
           <Col span={6} style={{ float: "right" }}>
