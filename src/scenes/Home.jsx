@@ -24,34 +24,31 @@ function Home() {
 
   return (
     <>
-    <br/>
-      <Row justify="space-around" >
-          {/* <br/> */}
-        <Col span={24} >
-            <Row justify="center">
-
-          {!user ? (<Title level={3}  >
-            In order to post on the wall, please either
-            <Link to="/login"> Login </Link>
-            or
-            <Link to="/signup"> sign up </Link>.
-          </Title>) : (null) 
-        }
-       </Row>
+      <br />
+      <Row justify="space-around">
+        <Col span={24}>
+          <Row justify="center">
+            {!user ? (
+              <Title level={3}>
+                In order to post on the wall, please either
+                <Link to="/login"> Login </Link>
+                or
+                <Link to="/signup"> sign up </Link>.
+              </Title>
+            ) : null}
+          </Row>
 
           <>
             <br />
-           
+
             <Posts
               posts={posts}
               setPosts={setPosts}
               loading={loading}
               setLoading={setLoading}
             />
-
           </>
-    
-      </Col>
+        </Col>
       </Row>
     </>
   );

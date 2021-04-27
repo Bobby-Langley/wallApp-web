@@ -79,13 +79,11 @@ function Posts({ posts, setPosts, loading, setLoading }) {
 
   return (
     <>
-      <Row type="flex" justify="center" className="alignColumn">
-        <Col span={14} className="alignColumn">
+      <Row type="flex" justify="center" >
+        <Col span={14} >
           {user ? (
             <>
-              <p style={{ textAlign: "center", fontSize: "16px" }}>
-                Add something to The Wall.
-              </p>
+             
               <NewPost
                 posts={posts}
                 setPosts={setPosts}

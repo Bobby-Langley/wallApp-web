@@ -3,35 +3,21 @@
 }
 .body{
   max-height: 100vh !important;
+ 
   
   
 }
 .ant-layout-content{
   min-height: 87vh !important;
+   background: lightgrey;
 }
 
-.cardEffect{
-  animation: bobble 2s infinite;
-}
-@keyframes bobble{
-    0% {
-        transform: translate3d(20px, 10px, 0px);
-        animation-timing-function: ease-in;
-    }
-    50% {
-        transform: translate3d(20px, 20px, 0px);
-        animation-timing-function: ease-out;
-    }
-    100% {
-        transform: translate3d(20px, 10px, 0px);
-    }
-}
 
 
 .site-layout-content {
   min-height: 280px;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.75) !important;
+  background: rgba(210, 210, 210, 0.75) !important;
   max-width: 600px;
   margin: auto;
  
@@ -43,7 +29,7 @@
 
 
 .ant-layout {
-  background: none;
+  background: none
 }
 
 .App-header {
@@ -53,7 +39,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color:#656464;
 }
 
 .ant-layout-header {
@@ -66,19 +51,11 @@
   background: #656464 !important;
   justify-content: center;
   font-weight: 600px;
- 
- 
-  
-  
-  
-  
 }
 .ant-card-body {
   padding: inherit !important;
 }
-.App-link {
-  color: #61dafb;
-}
+
 .ant-list-bordered {
   border: 2px solid white;
 }
@@ -120,7 +97,6 @@
   margin-bottom: 10px;
   padding-bottom: 50px;
   white-space: nowrap;
-  /* overflow: hidden; */
   overflow: ellipsis;
 }
 

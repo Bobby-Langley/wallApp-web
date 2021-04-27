@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { Menu, Layout, Row, Col } from "antd";
+import { Menu, Layout, Row, Col, Typography } from "antd";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import Avatar from "antd/lib/avatar/avatar";
 import { Header } from "antd/lib/layout/layout";
-
+const { Paragraph } = Typography;
 const rightStyle = { position: "absolute", top: 0, right: 0 };
 
 function Navbar() {
@@ -38,9 +38,9 @@ function Navbar() {
     );
   return (
     <>
-      <Header>
-        <Row justify="space-between">
-          <Col span={6} style={{ float: "left" }}>
+      <Header style={{backgroundColor: "white"}}>
+        <Row justify="space-between" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Col span={8} style={{ float: "left" }}>
             <Link className="welcome" to="/">
               <img
                 style={{ marginRight: "-15px" }}
@@ -48,22 +48,11 @@ function Navbar() {
                 height={75}
                 src="\TSL-logo.png"
               ></img>
-              <img width={170} height={40} src="\wallappLogo.png"></img>
+              <img width={170} height={40} src="\wallappLogo 2.png"></img>
             </Link>
           </Col>
-          <Col
-            className="welcome"
-            span={6}
-            style={{ float: "center", fontSize: "20px", overflow: "hidden" }}
-          >
-            {!user ? (
-              <p> Welcome, to the Wall App, Guest. </p>
-            ) : (
-              <p>Welcome, {userName}. </p>
-            )}
-          </Col>
 
-          <Col span={6} style={{ float: "right" }}>
+          <Col span={8} style={{ float: "right" }}>
             <Menu
               mode="horizontal"
               defaultSelectedKeys={["1"]}
