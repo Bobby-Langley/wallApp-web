@@ -35,11 +35,11 @@ exports.sendWelcomeEmail = functions.auth.user().onCreate((user) => {
         mailOptions.subject = `Welcome to ${APP_NAME}!`;
         mailOptions.text = `Hey ${displayName || ''}! Welcome to ${APP_NAME}.
 
-      In order to post on the wall, you must be signed in. To edit or delete your posts, look for the hamburger menu icon to the right of your text.
+  In order to post on the wall, you must be signed in. To edit or delete your posts, look for the hamburger menu icon to the right of your text.
         
-      For any questions, comments, or concerns please forward your query to TSlWallApp2021@gmail.com.
+  For any questions, comments, or concerns please forward your query to TSlWallApp2021@gmail.com.
        
-      Thanks!`
+  Thanks!`
 
         mailOptions.photo = 
 
