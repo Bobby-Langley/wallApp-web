@@ -11,7 +11,7 @@ function WelcomeLine(){
     const { user } = useContext(UserContext);
 const userName =
     !user || !user.displayName
-      ? " user that didn't sign in with Google."
+      ? " user (that didn't sign in with Google).."
       : user && user.displayName;
 
     return(

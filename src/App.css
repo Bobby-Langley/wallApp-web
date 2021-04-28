@@ -9,7 +9,7 @@
 }
 .ant-layout-content{
   min-height: 87vh !important;
-   background: lightgrey;
+   background: #f5f5f5;
 }
 
 
@@ -48,7 +48,8 @@
   background: white  !important;
 }
 .ant-layout-footer{
-  background: #656464 !important;
+  background: linear-gradient(0deg, #cacaca, #f5f5f5 ) !important;
+  /* background: #cacaca !important; */
   justify-content: center;
   font-weight: 600px;
 }

@@ -24,7 +24,10 @@ function Home() {
 
   return (
     <>
-      <br />
+      {loading && 
+              <div style={{textAlign: "center" }} >
+              <Spin style={{textAlign: "center" }}  size="large" /> </div>}
+            
       <Row justify="space-around">
         <Col span={24}>
           <Row justify="center">

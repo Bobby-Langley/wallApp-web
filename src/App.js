@@ -37,7 +37,7 @@ function App() {
                 <Route path="/" component={Home} />
               </Switch>
             </Content>
-            <Footer style={{ textAlign: "center", color: "#FFF" }}>
+            <Footer style={{ textAlign: "center" }}>
               ©2021 Created by Bobby Langley
             </Footer>
           </Layout>

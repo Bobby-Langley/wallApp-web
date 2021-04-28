@@ -43,7 +43,7 @@ function Navbar() {
           <Col span={8} style={{ float: "left" }}>
             <Link className="welcome" to="/">
               <img
-                style={{ marginRight: "-15px" }}
+                style={{ marginRight: "-15px", paddingBottom: "5px"}}
                 width={75}
                 height={75}
                 src="\TSL-logo.png"
