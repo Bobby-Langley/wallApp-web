@@ -35,7 +35,7 @@ const tooltip = (
 );
 
 const Login = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(undefined);
   const [loading, setLoading] = useState(false);
   const { setUser, firebaseAuth } = useContext(UserContext);
   let history = useHistory();
@@ -63,7 +63,6 @@ const Login = () => {
           .then((res) => {
             setError(null);
             setUser(res.user);
-            console.log(res.user);
             setLoading(false);
             localStorage.setItem("user", JSON.stringify(res.user));
             history.push("/");

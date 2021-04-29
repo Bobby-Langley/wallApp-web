@@ -1,14 +1,14 @@
 import React, { useState, createContext } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import firebase from "firebase";
 import "./App.css";
-import { Col, Divider, Layout, Row } from "antd";
-import { Content, Footer, Header } from "antd/lib/layout/layout";
+import { Layout } from "antd";
+import { Content, Footer } from "antd/lib/layout/layout";
 import Login from "./scenes/Login";
 import SignUp from "./scenes/Signup";
 import Home from "./scenes/Home";
 import Navbar from "./components/navbar";
-import WelcomeLine from "./components/welcomeLine"
+import WelcomeLine from "./components/welcomeLine";
 import UpdatePost from "./scenes/UpdatePost";
 import Title from "antd/lib/typography/Title";
 const { firebaseConfig } = require("./config");
@@ -27,9 +27,11 @@ function App() {
       <UserContext.Provider value={{ user, setUser, firebaseAuth }}>
         <Router>
           <Layout>
-            <Navbar style={{backgroundColor: "white" }} />
-            <Content style={{ padding: "0 50px", minHeight: "80vh"}}>
-             <Title style={{ textAlign: "center", padding: "10px" }}> <WelcomeLine/> </Title> 
+            <Navbar style={{ backgroundColor: "white" }} />
+            <Content style={{ padding: "0 50px", minHeight: "80vh" }}>
+              <Title style={{ textAlign: "center", padding: "10px" }}>
+                <WelcomeLine />
+              </Title>
               <Switch>
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={SignUp} />

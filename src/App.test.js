@@ -1,16 +1,46 @@
-import { render, screen } from '@testing-library/react';
-import * as React from 'react'
+import { render, screen, container } from '@testing-library/react';
+import React, {useContext} from 'react'
 import * as ReactDOM from 'react-dom'
 import App from './App';
+import Posts from './components/posts';
+const UserContext = React.createContext()
 
-test(`canary`, () => {
-  expect(true).toBe(true);
+window.matchMedia = window.matchMedia || function() {
+  return {
+      matches: false,
+      addListener: function() {},
+      removeListener: function() {}
+  };
+}
+
+
+
+test("displays name of current user", function test() {
+  render(
+    <UserContext.Provider value={{ user: { displayName: "Bobby Langley" } }}>
+      <UserDisplayName />
+    </UserContext.Provider>
+  )
+  expect(screen.getByText("Bobby Langley")).toBeVisible()
 })
 
-test("renders the correct content", () => {
-  const root = document.createElement("div")
-  ReactDOM.render(<App />, root)
 
-  expect(root.querySelector("Footer")).toHaveTextContent.toBe("Bobby")
-})
+it('renders', () => {
+  const user = null
+  render(
+    <Posts/>
+  )
+  expect(screen.getByText("Bobby Langley")).toBeVisible()
+  expect(user).toBeNull();
+  expect(NewPost).toBeHidden();
+});
+
+
+
+function UserDisplayName() {
+  const { user } = useContext(UserContext)
+  return <p>{user.displayName || null}</p>
+}
+
+
 

@@ -44,7 +44,7 @@ function deletePost(post, setPosts, setLoading) {
 function Posts({ posts, setPosts, loading, setLoading }) {
   const [post, setPost] = useState();
   const history = useHistory();
-  const { id } = useParams();
+  // const { id } = useParams();
   const { user } = useContext(UserContext);
 
   function handleMenuClick(e) {}
