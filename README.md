@@ -10,6 +10,18 @@ So here it is...
 
 This is a web app made with the intention of meeting all the requirements of the assignment. The initial idea was just to "create" and "read" posts from the database, however I took it one step further and made it so authenticated users could also update and delete their posts.
 
+## Requirements
+
+The app needed to meet a few requirements:
+
+    -Registration and Login: Anonymous users can create a new user and this new user receives a welcome email. New users can then log in.
+
+    -Wall (authed):  After logging in, a user can post messages on the site-wide wall, similar to a facebook wall except there is only 1 wall for the entire site.  
+
+    -Wall (guest): Guests as well as authed users can see all of the messages on the wall.
+
+    -Write automated tests to confirm the functionality of the above requirements.  
+
 
 ## What went in...
 
