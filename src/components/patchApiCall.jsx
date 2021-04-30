@@ -34,8 +34,7 @@ export function submitUpdate(
           return history.push(`/`)
         })
         .catch(() => setLoading(false));
-    }
-    
+    }   
   }
 
 
@@ -44,5 +43,4 @@ export function getSinglePost(id, setPost) {
     .then((res) => res.json())
     .then((data) => setPost(data))
     .catch((error) => console.log(error));
-  console.log({ id }, "getsinglepost id");
 }

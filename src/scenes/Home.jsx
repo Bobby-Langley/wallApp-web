@@ -41,10 +41,8 @@ function Home() {
               </Title>
             ) : null}
           </Row>
-
           <>
             <br />
-
             <Posts
               posts={posts}
               setPosts={setPosts}

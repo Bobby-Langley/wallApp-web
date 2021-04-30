@@ -25,7 +25,7 @@ The app needed to meet a few requirements:
 
 ## What went in...
 
-The app is written in Javascript, HTML, and CSS using node, express, and react. The frontend and backend API are deployed and hosted using Firebase. Authentication is handled through Firebase and the app is connected to a Firestore database. Ant Design was used for styling and additional components.
+The full app is written in Javascript, HTML, and CSS using node, express, and react. The frontend and backend API are deployed and hosted using Firebase. Authentication is handled through Firebase and the app is connected to a Firestore database. Ant Design was used for styling and additional components.
 
 The app is fully deployed so you can access this app from anywhere, so feel free to use it on desktop, tablet, phone, etc. but at this point in time it is best viewed via desktop.
 

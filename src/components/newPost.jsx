@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../App";
-import { Col, Row, Space, Spin } from "antd";
+import { Col, Row } from "antd";
 import Search from "antd/lib/input/Search";
 
 function NewPost({ setPosts, loading, setLoading }) {
@@ -30,25 +30,21 @@ function NewPost({ setPosts, loading, setLoading }) {
   }
   return (
     <>
-  
       <Row justify="center">
         <Col span={10}>
-          {/* <Space direction="vertical"> */}
-            <Search
-              placeholder="Add posts here"
-              allowClear
-              hoverable
-              enterButton="Post"
-              style={{ width: 400 }}      
-              size="large"
-              onSearch={addPost}
-              value={newPost ? newPost.post : null}
-              onChange={(e) =>
-                setNewPost({ post: e.target.value, userId: user.uid })
-              }
-            /> 
-            
-          {/* </Space> */}
+          <Search
+            placeholder="Add posts here"
+            allowClear
+            hoverable
+            enterButton="Post"
+            style={{ width: 400 }}
+            size="large"
+            onSearch={addPost}
+            value={newPost ? newPost.post : null}
+            onChange={(e) =>
+              setNewPost({ post: e.target.value, userId: user.uid })
+            }
+          />
         </Col>
       </Row>
     </>

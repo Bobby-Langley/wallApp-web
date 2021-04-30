@@ -1,9 +1,8 @@
-import { render, screen, container } from '@testing-library/react';
-import React, {useContext} from 'react'
+import { render, screen } from '@testing-library/react';
+import React from 'react'
 import * as ReactDOM from 'react-dom'
 import App from '../App';
-import Posts from '../components/posts';
-const UserContext = React.createContext()
+
 
 window.matchMedia = window.matchMedia || function() {
   return {

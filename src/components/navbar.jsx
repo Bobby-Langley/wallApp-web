@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Menu, Layout, Row, Col, Typography } from "antd";
+import { Menu,  Row, Col, Typography } from "antd";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import Avatar from "antd/lib/avatar/avatar";
