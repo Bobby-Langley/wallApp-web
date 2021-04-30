@@ -8,7 +8,7 @@ The SilverLogic gave the assignment of creating an app that that allows users to
 
 So here it is...
 
-This is a web app made with the intention of meeting all the requirements of the assignment. The initial idea was just to "create" and "read" posts from the database, however I took it one step further and made it so authenticated users could also update and delete their posts.
+This is a web app made with the intention of meeting all the requirements of the assignment. The initial idea was just to create and read posts on the web app from the database, however I took it one step further and made it so authenticated users could also update and delete their posts.
 
 ## Requirements
 

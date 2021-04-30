@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Col, Row, Spin } from "antd";
+import { Col, Row, Spin} from "antd";
 import Title from "antd/lib/typography/Title";
 import { Link } from "react-router-dom";
 import { UserContext } from "../App";
@@ -34,6 +34,7 @@ function Home() {
             {!user ? (
               <Title level={3}>
                 In order to post on the wall, please either
+                ]
                 <Link to="/login"> Login </Link>
                 or
                 <Link to="/signup"> sign up </Link>.
