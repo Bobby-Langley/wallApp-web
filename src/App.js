@@ -11,6 +11,7 @@ import Navbar from "./components/navbar";
 import WelcomeLine from "./components/welcomeLine";
 import UpdatePost from "./scenes/UpdatePost";
 import Title from "antd/lib/typography/Title";
+import DjangoApp from "./djangoApp";
 const { firebaseConfig } = require("./config");
 
 firebase.initializeApp(firebaseConfig);
@@ -31,6 +32,7 @@ function App() {
             <Content style={{ padding: "0 50px", minHeight: "80vh" }}>
               <Title style={{ textAlign: "center", padding: "10px" }}>
                 <WelcomeLine />
+                <DjangoApp/>
               </Title>
               <Switch>
                 <Route path="/login" component={Login} />
